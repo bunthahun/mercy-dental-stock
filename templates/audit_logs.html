@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កំណត់ត្រាសកម្មភាពបុគ្គលិក (Audit Logs) | Mercy Dental Care</title>
+    <!-- Google Fonts: Kantumruy Pro & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --primary-light: #e0f2fe;
+            --secondary: #64748b;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --purple: #7c3aed;
+            --purple-light: #ede9fe;
+            --bg-main: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.5;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+            color: #ffffff;
+            padding: 14px 0;
+            box-shadow: 0 4px 20px rgba(2, 132, 199, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand-icon {
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+        }
+
+        .brand-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .brand-subtitle {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary { background-color: var(--primary); color: #ffffff; }
+        .btn-secondary { background-color: #f1f5f9; color: #334155; border: 1px solid var(--border-color); }
+        .btn-secondary:hover { background-color: #e2e8f0; }
+        .btn-danger { background-color: var(--danger); color: white; }
+        .btn-sm { padding: 5px 10px; font-size: 0.8rem; border-radius: 6px; }
+
+        .page-header {
+            margin: 24px 0 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .page-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .controls-card {
+            background: var(--bg-card);
+            padding: 16px 20px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .form-input, .form-select {
+            padding: 8px 14px;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-family: inherit;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: #f8fafc;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+            font-size: 0.88rem;
+        }
+
+        .data-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .badge-login { background-color: #dbeafe; color: #1e40af; }
+        .badge-logout { background-color: #f1f5f9; color: #475569; }
+        .badge-in { background-color: #d1fae5; color: #065f46; }
+        .badge-out { background-color: #ede9fe; color: #6d28d9; }
+        .badge-edit { background-color: #fef3c7; color: #92400e; }
+        .badge-delete { background-color: #fee2e2; color: #991b1b; }
+        .badge-user { background-color: #fce7f3; color: #9d174d; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container navbar-content">
+            <a href="{{ url_for('index') }}" class="brand-section" title="ចុចដើម្បីត្រឡប់ទៅទំព័រដើម">
+                <img src="{{ url_for('static', filename='images/mercy_logo.png') }}" alt="Mercy Dental Care Logo" style="height: 46px; width: auto; background: #ffffff; padding: 2px 8px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); object-fit: contain;">
+                <div>
+                    <h1 class="brand-title">Mercy Dental Care</h1>
+                    <p class="brand-subtitle">ប្រព័ន្ធគ្រប់គ្រងស្តុកសម្ភារៈ និងឱសថព្យាបាលធ្មេញ</p>
+                </div>
+            </a>
+            <div class="nav-actions">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary btn-sm">
+                    🏠 ទៅកាន់ទំព័រដើម
+                </a>
+                <a href="{{ url_for('manage_users') }}" class="btn btn-primary btn-sm">
+                    👥 គ្រប់គ្រងអ្នកប្រើ (Users)
+                </a>
+                <a href="{{ url_for('logout') }}" class="btn btn-danger btn-sm">
+                    🚪 ចាកចេញ
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div style="margin-top: 18px;">
+                    {% for category, message in messages %}
+                        <div style="padding: 12px 18px; border-radius: 10px; margin-bottom: 12px; font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; justify-content: space-between; {% if category == 'success' %}background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0;{% elif category == 'danger' %}background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca;{% else %}background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd;{% endif %}">
+                            <span>{{ message }}</span>
+                            <button onclick="this.parentElement.remove()" style="background:none; border:none; cursor:pointer; font-weight:bold; font-size:1.2rem;">&times;</button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="page-header">
+            <div>
+                <h2 class="page-title">📜 កំណត់ត្រាសកម្មភាពបុគ្គលិក (Audit Logs)</h2>
+                <p style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">
+                    តាមដានរាល់សកម្មភាពរបស់បុគ្គលិកទាំងអស់ដែលបានចូលប្រើប្រាស់ប្រព័ន្ធ (Login, ដកស្តុក, ដាក់ស្តុក, កែប្រែ, លុប...)។
+                </p>
+            </div>
+            {% if logs %}
+                <form action="{{ url_for('clear_audit_logs') }}" method="POST" onsubmit="return confirm('⚠️ តើអ្នកពិតជាចង់សម្អាត និងលុបកំណត់ត្រាសកម្មភាពទាំងអស់ចេញពីប្រព័ន្ធមែនទេ?');">
+                    <button type="submit" class="btn btn-danger btn-sm" title="សម្អាតកំណត់ត្រាទាំងអស់">
+                        🗑️ សម្អាតកំណត់ត្រាទាំងអស់ (Clear All Logs)
+                    </button>
+                </form>
+            {% endif %}
+        </div>
+
+        <!-- Filter Controls -->
+        <section class="controls-card">
+            <form action="{{ url_for('audit_logs') }}" method="GET" class="filter-form">
+                <input 
+                    type="text" 
+                    name="search" 
+                    class="form-input" 
+                    placeholder="🔍 ស្វែងរកតាមឈ្មោះ, Username ឬចំណាំ..." 
+                    value="{{ search_query if search_query else '' }}"
+                    style="min-width: 250px;"
+                >
+                <select name="action" class="form-select" onchange="this.form.submit()">
+                    <option value="">-- សកម្មភាពទាំងអស់ (All Actions) --</option>
+                    <option value="LOGIN" {% if action_filter == 'LOGIN' %}selected{% endif %}>🔐 ចូលប្រព័ន្ធ (Login)</option>
+                    <option value="STOCK_OUT" {% if action_filter == 'STOCK_OUT' %}selected{% endif %}>📤 ដកស្តុក (Stock Out)</option>
+                    <option value="STOCK_IN" {% if action_filter == 'STOCK_IN' %}selected{% endif %}>📥 ដាក់ចូលស្តុក (Stock In)</option>
+                    <option value="EDIT_ITEM" {% if action_filter == 'EDIT_ITEM' %}selected{% endif %}>✏️ កែប្រែទិន្នន័យ (Edit)</option>
+                    <option value="DELETE_ITEM" {% if action_filter == 'DELETE_ITEM' %}selected{% endif %}>🗑️ ផ្លាស់ទីទៅធុងសំរាម</option>
+                    <option value="PERMANENT_DELETE" {% if action_filter == 'PERMANENT_DELETE' %}selected{% endif %}>❌ លុបអចិន្ត្រៃយ៍</option>
+                </select>
+                <button type="submit" class="btn btn-primary btn-sm">ស្វែងរក</button>
+                {% if search_query or action_filter %}
+                    <a href="{{ url_for('audit_logs') }}" class="btn btn-secondary btn-sm">សម្អាត Filter</a>
+                {% endif %}
+            </form>
+            <div style="font-size: 0.85rem; color: #64748b;">
+                សរុបសកម្មភាព៖ <strong>{{ logs|length }}</strong>
+            </div>
+        </section>
+
+        <!-- Logs Table -->
+        <div class="card">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 155px;">កាលបរិច្ឆេទ & ម៉ោង</th>
+                        <th style="width: 170px;">បុគ្គលិក / អ្នកធ្វើ</th>
+                        <th style="width: 160px;">សកម្មភាព</th>
+                        <th>សម្ភារៈពាក់ព័ន្ធ</th>
+                        <th>ព័ត៌មានលម្អិត (Details)</th>
+                        <th style="text-align: center; width: 75px;">លុប</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if logs %}
+                        {% for log in logs %}
+                            <tr>
+                                <td style="color: #64748b; font-size: 0.82rem; white-space: nowrap;">
+                                    ⏰ {{ log['created_at'][:19] if log['created_at'] else '-' }}
+                                </td>
+                                <td>
+                                    <strong>{{ log['full_name'] }}</strong>
+                                    <div style="font-size: 0.75rem; color: #0284c7;">@{{ log['username'] }}</div>
+                                </td>
+                                <td>
+                                    {% if 'Login' in log['action'] or 'ចូល' in log['action'] %}
+                                        <span class="badge badge-login">🔐 {{ log['action'] }}</span>
+                                    {% elif 'ចាកចេញ' in log['action'] or 'Logout' in log['action'] %}
+                                        <span class="badge badge-logout">🚪 {{ log['action'] }}</span>
+                                    {% elif 'ដក' in log['action'] %}
+                                        <span class="badge badge-out">📤 {{ log['action'] }}</span>
+                                    {% elif 'ដាក់' in log['action'] or 'ថែម' in log['action'] %}
+                                        <span class="badge badge-in">📥 {{ log['action'] }}</span>
+                                    {% elif 'កែប្រែ' in log['action'] %}
+                                        <span class="badge badge-edit">✏️ {{ log['action'] }}</span>
+                                    {% elif 'លុប' in log['action'] %}
+                                        <span class="badge badge-delete">🗑️ {{ log['action'] }}</span>
+                                    {% else %}
+                                        <span class="badge badge-user">⚙️ {{ log['action'] }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if log['item_name'] %}
+                                        <strong style="color: #1e293b;">{{ log['item_name'] }}</strong>
+                                    {% else %}
+                                        <span style="color: #94a3b8;">-</span>
+                                    {% endif %}
+                                </td>
+                                <td style="color: #475569;">
+                                    {{ log['details'] if log['details'] else '-' }}
+                                </td>
+                                <td style="text-align: center;">
+                                    <form action="{{ url_for('delete_audit_log', log_id=log['id']) }}" method="POST" onsubmit="return confirm('តើអ្នកពិតជាចង់លុបកំណត់ត្រានេះមែនទេ?');" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger btn-sm" title="លុបកំណត់ត្រានេះ" style="padding: 4px 8px; border-radius: 6px; font-size: 0.85rem;">
+                                            🗑️
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 40px; color: #64748b;">
+                                មិនទាន់មានកំណត់ត្រាសកម្មភាពណាមួយនៅឡើយទេ។
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
