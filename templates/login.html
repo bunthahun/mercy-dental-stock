@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ចូលប្រើប្រព័ន្ធ | Mercy Dental Care</title>
+    <!-- Google Fonts: Kantumruy Pro & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --primary-dark: #075985;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --bg-page: #f8fafc;
+            --border-color: #e2e8f0;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --shadow-card: 0 20px 40px -15px rgba(2, 132, 199, 0.15), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .login-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(2, 132, 199, 0.12);
+            overflow: hidden;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+            padding: 36px 30px 28px 30px;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .brand-icon {
+            font-size: 2.8rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 16px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+
+        .brand-subtitle {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.88);
+            font-weight: 400;
+        }
+
+        .login-body {
+            padding: 32px 30px 36px 30px;
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-danger {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .alert-info {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+        }
+
+        .alert-warning {
+            background-color: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        .alert-success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            pointer-events: none;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 14px 12px 42px;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--text-main);
+            background-color: #f8fafc;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3.5px rgba(2, 132, 199, 0.15);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            padding: 4px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+            transition: all 0.2s ease;
+            margin-top: 8px;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.82rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .admin-hint-box {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: #475569;
+            text-align: left;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="{{ url_for('static', filename='images/mercy_logo.png') }}" alt="Mercy Dental Care Logo" style="height: 75px; width: auto; background: #ffffff; padding: 6px 14px; border-radius: 16px; margin: 0 auto 16px auto; display: block; box-shadow: 0 8px 24px rgba(0,0,0,0.18); object-fit: contain;">
+                <h1 class="brand-title">Mercy Dental Care</h1>
+                <p class="brand-subtitle">ប្រព័ន្ធគ្រប់គ្រងស្តុកសម្ភារៈ និងឱសថព្យាបាលធ្មេញ</p>
+            </div>
+
+            <div class="login-body">
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                <span>{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <form method="POST" action="{{ url_for('login') }}">
+                    <input type="hidden" name="next" value="{{ request.args.get('next', '') }}">
+
+                    <!-- Username Input -->
+                    <div class="form-group">
+                        <label class="form-label" for="username">👤 ឈ្មោះអ្នកប្រើ (Username) *</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="username" 
+                                class="form-input" 
+                                placeholder="វាយ Username របស់អ្នក..." 
+                                required 
+                                autofocus
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="form-group">
+                        <label class="form-label" for="password">🔑 លេខកូដសម្ងាត់ (Password) *</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                class="form-input" 
+                                placeholder="••••••••" 
+                                required
+                            >
+                            <button type="button" class="toggle-password" onclick="togglePassVisibility()" title="បង្ហាញ/លាក់លេខសម្ងាត់">
+                                👁️
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        🔓 ចូលប្រើប្រាស់ប្រព័ន្ធ (Login)
+                    </button>
+                </form>
+
+                <div class="admin-hint-box">
+                    <strong>🔐 សម្គាល់សុវត្ថិភាព៖</strong>
+                    <p style="margin-top: 4px;">
+                        សម្រាប់បុគ្គលិកថ្មី សូមទាក់ទង <strong>Admin</strong> ដើម្បីទទួលបាន Username និង Password ផ្លូវការ។
+                    </p>
+                </div>
+
+                <div class="login-footer">
+                    <div>© 2026 Mercy Dental Care Clinic</div>
+                    <div style="font-size: 0.76rem; color: #94a3b8; margin-top: 2px;">ប្រព័ន្ធការពារដោយសិទ្ធិសុវត្ថិភាព Role-Based Access</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassVisibility() {
+            const passInput = document.getElementById('password');
+            if (passInput.type === 'password') {
+                passInput.type = 'text';
+            } else {
+                passInput.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>
