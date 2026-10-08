@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ប័ណ្ណសារប្រចាំខែ និងឆ្នាំ - Mercy Dental Care</title>
+    <!-- Google Fonts: Kantumruy Pro & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --primary-light: #e0f2fe;
+            --secondary: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --purple: #7c3aed;
+            --bg-main: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+            color: #ffffff;
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(2, 132, 199, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .brand-section:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+
+        .brand-icon {
+            font-size: 2.2rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            backdrop-filter: blur(8px);
+        }
+
+        .brand-title {
+            font-size: 1.45rem;
+            font-weight: 700;
+        }
+
+        .brand-subtitle {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.92rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: #f1f5f9;
+            color: #334155;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e2e8f0;
+        }
+
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #059669;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+
+        .btn-light {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #0369a1;
+        }
+
+        .btn-light:hover {
+            background-color: #ffffff;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.82rem;
+            border-radius: 8px;
+        }
+
+        /* Archive Filter Box Card */
+        .archive-filter-card {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            margin: 24px 0;
+        }
+
+        .archive-filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .archive-filter-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 16px;
+            margin-top: 14px;
+        }
+
+        .filter-box-section {
+            background: #f8fafc;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .filter-box-section.item-select-section {
+            grid-column: 1 / -1;
+            background: #ffffff;
+            border-color: #e2e8f0;
+        }
+
+        @media (min-width: 992px) {
+            .filter-main-grid {
+                grid-template-columns: 1fr 1fr 1.2fr;
+            }
+
+            .filter-box-section.item-select-section {
+                grid-column: auto;
+            }
+        }
+
+        .section-badge-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .badge-dot.start {
+            background-color: #0284c7;
+            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+        }
+
+        .badge-dot.end {
+            background-color: #059669;
+            box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.2);
+        }
+
+        .badge-dot.item {
+            background-color: #7c3aed;
+            box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+        }
+
+        .filter-inputs-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .filter-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #475569;
+        }
+
+        .form-select {
+            padding: 9px 12px;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.92rem;
+            font-family: inherit;
+            color: var(--text-main);
+            background-color: #fff;
+            width: 100%;
+            transition: all 0.2s ease;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+        }
+
+        .filter-actions-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .quick-preset-btns {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-preset {
+            padding: 5px 12px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: #475569;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-preset:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: #f0f9ff;
+        }
+
+        .btn-preset.active {
+            background: #e0f2fe;
+            border-color: #0284c7;
+            color: #0284c7;
+            font-weight: 700;
+        }
+
+        /* 12-Month Year Archive Grid */
+        .months-archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .month-box-card {
+            background: #f8fafc;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px 14px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .month-box-card:hover {
+            border-color: var(--primary);
+            background: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .month-box-card.active {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #ffffff;
+            border-color: #0284c7;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+
+        .month-box-name {
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .month-box-stat {
+            font-size: 0.8rem;
+            opacity: 0.85;
+        }
+
+        /* Compact Horizontal Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin: 16px 0 20px 0;
+            align-items: stretch;
+        }
+
+        @media (min-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 10px 12px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1.5px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+            transition: all 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary);
+        }
+
+        .stat-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+
+        .stat-icon.blue {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+
+        .stat-icon.emerald {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .stat-icon.purple {
+            background: #ede9fe;
+            color: #7c3aed;
+        }
+
+        .stat-icon.amber {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .stat-icon.sky {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+
+        .stat-icon.slate {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .stat-info {
+            min-width: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-info h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.15;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .stat-info p {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            line-height: 1.25;
+            margin: 2px 0 0 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .table-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .table-header-title {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8fafc;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: #f8fafc;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+            font-size: 0.92rem;
+        }
+
+        .data-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .row-num-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            border-radius: 8px;
+            font-size: 0.88rem;
+        }
+
+        .qty-used-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            background-color: #fee2e2;
+            color: #991b1b;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border-radius: var(--radius-md);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .badge-category {
+            background-color: #ede9fe;
+            color: #5b21b6;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--text-muted);
+        }
+
+        .empty-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .flash-container {
+            margin-top: 20px;
+        }
+
+        .alert {
+            padding: 14px 20px;
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .alert-success {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .alert-info {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+            {
+            % if is_modal %
+        }
+
+        body {
+            padding-top: 10px !important;
+            background: #f8fafc !important;
+        }
+
+        main.container {
+            max-width: 100% !important;
+            padding: 0 14px 20px 14px !important;
+        }
+
+            {
+            % endif %
+        }
+    </style>
+</head>
+
+<body>
+
+    {% if not is_modal %}
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container navbar-content">
+            <!-- Clickable Tooth Logo & Title -->
+            <a href="{{ url_for('index') }}" class="brand-section" title="ចុចដើម្បីត្រឡប់ទៅទំព័រដើម">
+                <img src="{{ url_for('static', filename='images/mercy_logo.png') }}" alt="Mercy Dental Care Logo"
+                    style="height: 48px; width: auto; background: #ffffff; padding: 2px 8px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); object-fit: contain;">
+                <div>
+                    <h1 class="brand-title">Mercy Dental Care</h1>
+                    <p class="brand-subtitle">ប័ណ្ណសារ និងស្ថិតិប្រើប្រាស់សម្ភារៈប្រចាំខែ-ឆ្នាំ</p>
+                </div>
+            </a>
+            <div class="nav-actions">
+                <span
+                    style="background: rgba(255, 255, 255, 0.2); padding: 5px 12px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; color: #ffffff; backdrop-filter: blur(4px); display: inline-flex; align-items: center; gap: 6px;">
+                    👤 {{ current_user['full_name'] }} ({{ 'Admin' if current_user['is_admin'] else 'Staff' }})
+                </span>
+                {% if current_user['is_admin'] %}
+                <a href="{{ url_for('manage_users') }}" class="btn btn-light btn-sm">👥 អ្នកប្រើ (Users)</a>
+                <a href="{{ url_for('audit_logs') }}" class="btn btn-light btn-sm">📜 សកម្មភាព (Logs)</a>
+                {% endif %}
+                <a href="{{ url_for('export_monthly_usage_csv', from_year=from_year, from_month=from_month, to_year=to_year, to_month=to_month, item_name=selected_item) }}"
+                    class="btn btn-light btn-sm" title="ទាញយករបាយការណ៍ Excel/CSV">
+                    📥 CSV
+                </a>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary btn-sm">
+                    ⬅️ ត្រឡប់ទៅស្តុក
+                </a>
+                <a href="{{ url_for('logout') }}" class="btn btn-danger btn-sm" title="ចាកចេញពីប្រព័ន្ធ">
+                    🚪 ចាកចេញ
+                </a>
+            </div>
+        </div>
+    </header>
+    {% endif %}
+
+    <main class="container">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-container">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                <span>{{ message }}</span>
+                <button onclick="this.parentElement.remove()"
+                    style="background:none; border:none; cursor:pointer; font-weight:bold; font-size:1.2rem;">&times;</button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Archive Filter Box (ប្រអប់ជ្រើសរើសចន្លោះកាលបរិច្ឆេទ និងឈ្មោះសម្ភារៈ) -->
+        <section class="archive-filter-card">
+            <div class="archive-filter-header" style="flex-wrap: wrap; gap: 12px;">
+                <div class="archive-filter-title">
+                    <span>🗄️</span>
+                    <span>ប្រអប់ប័ណ្ណសាររក្សាទុកទិន្នន័យ (Monthly & Yearly Archive)</span>
+                </div>
+                <div>
+                    <span
+                        style="font-size: 0.9rem; color: #0284c7; font-weight: 700; background: #e0f2fe; padding: 6px 14px; border-radius: 20px; border: 1px solid #bae6fd; display: inline-flex; align-items: center; gap: 6px;">
+                        📍 កំពុងមើល៖ {{ title_label }}
+                    </span>
+                </div>
+            </div>
+
+            <form action="{{ url_for('monthly_usage') }}" method="GET" id="archiveFilterForm">
+                {% if is_modal %}
+                <input type="hidden" name="modal" value="1">
+                {% endif %}
+                <div class="filter-main-grid">
+                    <!-- កាលបរិច្ឆេទចាប់ផ្ដើម (From Date: Year & Month) -->
+                    <div class="filter-box-section">
+                        <div class="section-badge-label">
+                            <span class="badge-dot start"></span>
+                            <span>ចាប់ពី (From)</span>
+                        </div>
+                        <div class="filter-inputs-pair">
+                            <div class="filter-group">
+                                <label class="filter-label">📅 ពីឆ្នាំ (From Year):</label>
+                                <select name="from_year" class="form-select">
+                                    {% for y in all_years %}
+                                    <option value="{{ y }}" {% if from_year==y %}selected{% endif %}>
+                                        ឆ្នាំ {{ y }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">🗓️ ពីខែ (From Month):</label>
+                                <select name="from_month" class="form-select">
+                                    {% for m_code, m_name in khmer_months %}
+                                    <option value="{{ m_code }}" {% if from_month==m_code %}selected{% endif %}>
+                                        ខែ {{ m_name }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- កាលបរិច្ឆេទបញ្ចប់ (To Date: Year & Month) -->
+                    <div class="filter-box-section">
+                        <div class="section-badge-label">
+                            <span class="badge-dot end"></span>
+                            <span>រហូតដល់ (To)</span>
+                        </div>
+                        <div class="filter-inputs-pair">
+                            <div class="filter-group">
+                                <label class="filter-label">📅 ដល់ឆ្នាំ (To Year):</label>
+                                <select name="to_year" class="form-select">
+                                    {% for y in all_years %}
+                                    <option value="{{ y }}" {% if to_year==y %}selected{% endif %}>
+                                        ឆ្នាំ {{ y }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">🗓️ ដល់ខែ (To Month):</label>
+                                <select name="to_month" class="form-select">
+                                    {% for m_code, m_name in khmer_months %}
+                                    <option value="{{ m_code }}" {% if to_month==m_code %}selected{% endif %}>
+                                        ខែ {{ m_name }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ជ្រើសរើស ឬវាយបញ្ចូលឈ្មោះសម្ភារៈ (Select or Type Item Name) -->
+                    <div class="filter-box-section item-select-section">
+                        <div class="section-badge-label">
+                            <span class="badge-dot item"></span>
+                            <span>ជ្រើសរើស ឬវាយឈ្មោះសម្ភារៈ (Type or Select Item)</span>
+                        </div>
+                        <div class="filter-group" style="width: 100%;">
+                            <label class="filter-label">💊 ឈ្មោះសម្ភារៈ (Item Name):</label>
+                            <div style="position: relative; display: flex; align-items: center; width: 100%;">
+                                <input type="text" name="item_name" id="item_name_input" list="itemsList"
+                                    class="form-select" placeholder="✍️ វាយឈ្មោះសម្ភារៈ ឬចុចរើសពីបញ្ជី (ទាំងអស់)..."
+                                    value="{{ selected_item }}" autocomplete="off" style="padding-right: 36px;">
+                                <button type="button" id="clearItemBtn" onclick="clearItemInput()"
+                                    title="លុបឈ្មោះសម្ភារៈចេញ (បង្ហាញទាំងអស់)"
+                                    style="position: absolute; right: 10px; background: none; border: none; font-size: 1.25rem; color: #94a3b8; cursor: pointer; padding: 2px 6px; line-height: 1; display: {% if selected_item %}block{% else %}none{% endif %};">&times;</button>
+                            </div>
+                            <datalist id="itemsList">
+                                {% for itm in all_items %}
+                                <option value="{{ itm }}"></option>
+                                {% endfor %}
+                            </datalist>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons & Quick Presets -->
+                <div class="filter-actions-row">
+                    <div class="quick-preset-btns">
+                        <span style="font-size: 0.82rem; font-weight: 700; color: #64748b;">ផ្លូវកាត់៖</span>
+                        <a href="{{ url_for('monthly_usage', modal=('1' if is_modal else None)) }}"
+                            class="btn-preset {% if from_year == to_year and from_month == to_month and not selected_item %}active{% endif %}">
+                            📌 ខែនេះ (This Month)
+                        </a>
+                        <a href="{{ url_for('monthly_usage', from_year=selected_year, from_month='01', to_year=selected_year, to_month='12', item_name=selected_item, modal=('1' if is_modal else None)) }}"
+                            class="btn-preset {% if from_month == '01' and to_month == '12' %}active{% endif %}">
+                            📅 ពេញមួយឆ្នាំ {{ selected_year }}
+                        </a>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <a href="{{ url_for('monthly_usage', modal=('1' if is_modal else None)) }}"
+                            class="btn btn-secondary btn-sm" title="កំណត់ជម្រើសឡើងវិញទៅខែបច្ចុប្បន្ន">
+                            🔄 កំណត់ឡើងវិញ
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            🔍 មើលប័ណ្ណសារ
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- 12-Month Quick Navigation Grid of Selected Year -->
+            <div
+                style="margin-top: 24px; font-size: 0.88rem; font-weight: 700; color: #64748b; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                <span>📌 ប័ណ្ណសារខែនីមួយៗក្នុងឆ្នាំ {{ to_year }} (ចុចលើប្រអប់ដើម្បីបើកមើលភ្លាមៗ)៖</span>
+                {% if selected_item %}
+                <span
+                    style="font-size: 0.8rem; color: #7c3aed; background: #ede9fe; padding: 3px 12px; border-radius: 12px; font-weight: 700;">
+                    💊 កំពុងចម្រាញ់តាម៖ {{ selected_item }}
+                </span>
+                {% endif %}
+            </div>
+            <div class="months-archive-grid">
+                {% for mb in yearly_breakdown %}
+                <a href="{{ url_for('monthly_usage', from_year=to_year, from_month=mb.code, to_year=to_year, to_month=mb.code, item_name=selected_item, modal=('1' if is_modal else None)) }}"
+                    class="month-box-card {% if mb.is_current and (from_month == to_month or from_year != to_year) %}active{% endif %}">
+                    <div class="month-box-name">ខែ {{ mb.name.split(' ')[0] }}</div>
+                    <div class="month-box-stat">
+                        {% if mb.total_used > 0 %}
+                        <strong>{{ mb.total_used }}</strong> ឯកតា ({{ mb.items_count }} មុខ)
+                        {% else %}
+                        <span style="opacity: 0.6;">គ្មានទិន្នន័យ</span>
+                        {% endif %}
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Stats Grid for Selected Period (ទម្រង់តូចផ្តេក ឃើញទាំងអស់តែមួយជួរ) -->
+        <section class="stats-grid">
+            <!-- 1. បានប្រើក្នុងកំឡុងពេលនេះ -->
+            <div class="stat-card" title="ចំនួនសម្ភារៈសរុបដែលបានដកប្រើក្នុងចន្លោះកាលបរិច្ឆេទនេះ">
+                <div class="stat-icon emerald">📤</div>
+                <div class="stat-info">
+                    <h3 style="color: #059669;">{{ total_used_units }}</h3>
+                    <p>បានប្រើពេលនេះ</p>
+                </div>
+            </div>
+
+            <!-- 2. ធ្លាប់ប្រើពីមុនៗសរុប (All-time / Past Usage) -->
+            <div class="stat-card" title="ចំនួនសម្ភារៈដែលធ្លាប់បានប្រើប្រាស់ពីមុនៗមកសរុបទាំងអស់">
+                <div class="stat-icon amber">⏳</div>
+                <div class="stat-info">
+                    <h3 style="color: #b45309;">{{ all_time_used }}</h3>
+                    <p>ធ្លាប់ប្រើពីមុនៗ</p>
+                </div>
+            </div>
+
+            <!-- 3. ចំនួនសរុបថ្មីដែលបានដាក់ចូលស្តុក -->
+            <div class="stat-card" title="ចំនួនសម្ភារៈសរុបដែលបានដាក់ចូលស្តុកថ្មី">
+                <div class="stat-icon sky">📥</div>
+                <div class="stat-info">
+                    <h3 style="color: #0284c7;">{{ total_added_units }}</h3>
+                    <p>ដាក់ចូលថ្មី (Added)</p>
+                </div>
+            </div>
+
+            <!-- 4. ចំនួនស្តុកនៅសល់បច្ចុប្បន្ន -->
+            <div class="stat-card" title="ចំនួនសម្ភារៈដែលនៅសល់ក្នុងស្តុកបច្ចុប្បន្ន">
+                <div class="stat-icon purple">🏬</div>
+                <div class="stat-info">
+                    <h3 style="color: #7c3aed;">{{ total_current_stock }}</h3>
+                    <p>ស្តុកនៅសល់</p>
+                </div>
+            </div>
+
+            <!-- 5. មុខសម្ភារៈដែលបានដកប្រើ -->
+            <div class="stat-card" title="ចំនួនមុខសម្ភារៈខុសៗគ្នាដែលបានដកប្រើ">
+                <div class="stat-icon blue">📦</div>
+                <div class="stat-info">
+                    <h3>{{ unique_items_count }}</h3>
+                    <p>មុខសម្ភារៈ (Items)</p>
+                </div>
+            </div>
+
+            <!-- 6. ចំនួនដងនៃការកត់ត្រា -->
+            <div class="stat-card" title="ចំនួនដងនៃការកត់ត្រាប្រតិបត្តិការ">
+                <div class="stat-icon slate">🔢</div>
+                <div class="stat-info">
+                    <h3>{{ detailed_logs|length }}</h3>
+                    <p>ចំនួនដងកត់ត្រា</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary Table by Item -->
+        <section class="table-card">
+            <div class="table-header-title">
+                <h2 style="font-size: 1.15rem; font-weight: 700; color: #1e293b;">
+                    📋 តារាងសង្ខេបសម្ភារៈដែលបានប្រើប្រាស់ ({{ title_label }})
+                </h2>
+                <span style="font-size: 0.85rem; color: #64748b;">សរុប {{ usage_summary|length }} មុខសម្ភារៈ</span>
+            </div>
+
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px; text-align: center;">ល.រ</th>
+                            <th>ឈ្មោះសម្ភារៈ / ឱសថ</th>
+                            <th>ប្រភេទ</th>
+                            <th style="text-align: center;">ចំនួនបានប្រើសរុប</th>
+                            <th style="text-align: center;">ស្តុកនៅសល់បច្ចុប្បន្ន</th>
+                            <th>កាលបរិច្ឆេទប្រើចុងក្រោយ</th>
+                            <th style="text-align: center;">ចំនួនដងដកប្រើ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if usage_summary %}
+                        {% for row in usage_summary %}
+                        <tr>
+                            <td style="text-align: center;">
+                                <span class="row-num-badge">{{ loop.index }}</span>
+                            </td>
+                            <td>
+                                <strong style="font-size: 1rem; color: #0f172a;">{{ row['item_name'] }}</strong>
+                            </td>
+                            <td>
+                                <span class="badge badge-category">{{ row['category'] }}</span>
+                            </td>
+                            <td style="text-align: center;">
+                                <span class="qty-used-badge">{{ row['total_used'] }} {{ row['unit'] }}</span>
+                            </td>
+                            <td style="text-align: center; font-weight: 600; color: #0284c7;">
+                                {{ row['current_stock'] }} {{ row['unit'] }}
+                            </td>
+                            <td>
+                                <span style="color: #64748b; font-size: 0.88rem;">{{ row['last_used_date'] }}</span>
+                            </td>
+                            <td style="text-align: center; font-weight: 600; color: #64748b;">
+                                {{ row['usage_count'] }} ដង
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="7">
+                                <div class="empty-state">
+                                    <div class="empty-icon">📭</div>
+                                    <h3>មិនមានកំណត់ត្រាការប្រើប្រាស់សម្ភារៈក្នុងកំឡុងពេលនេះទេ</h3>
+                                    <p>អ្នកអាចជ្រើសរើសខែ ឬឆ្នាំផ្សេងទៀតពីប្រអប់ខាងលើ។</p>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Detailed Log Table with Person Names -->
+        {% if detailed_logs %}
+        <section class="table-card">
+            <div class="table-header-title">
+                <h3 style="font-size: 1.05rem; font-weight: 700; color: #334155;">
+                    📝 កំណត់ត្រាលម្អិតនៃការដក និងដាក់ស្តុក (Detailed Transaction Logs)
+                </h3>
+            </div>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px; text-align: center;">#</th>
+                            <th>កាលបរិច្ឆេទ</th>
+                            <th>សកម្មភាព</th>
+                            <th>ឈ្មោះសម្ភារៈ</th>
+                            <th>ចំនួន</th>
+                            <th>👤 ឈ្មោះអ្នកដក / ដាក់ស្តុក</th>
+                            <th>ចំណាំ / គោលបំណង</th>
+                            <th style="text-align: center; width: 90px;">សកម្មភាព</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for log in detailed_logs %}
+                        <tr>
+                            <td style="text-align: center; color: #94a3b8;">{{ loop.index }}</td>
+                            <td style="font-weight: 600; color: #334155;">{{ log['used_date'] }}</td>
+                            <td>
+                                {% if log['action_type'] == 'ដកប្រើ' %}
+                                <span class="badge" style="background-color: #fee2e2; color: #991b1b;">📤 ដកប្រើ</span>
+                                {% elif log['action_type'] == 'ខ្ចី' %}
+                                <span class="badge"
+                                    style="background-color: #fef3c7; color: #b45309; font-weight: 700;">🤝 ខ្ចី
+                                    (Lab)</span>
+                                {% elif log['action_type'] == 'សងវិញ' %}
+                                <span class="badge"
+                                    style="background-color: #d1fae5; color: #065f46; font-weight: 700;">🔄 សងវិញ</span>
+                                {% else %}
+                                <span class="badge" style="background-color: #e0f2fe; color: #0369a1;">📥 ដាក់ចូល</span>
+                                {% endif %}
+                            </td>
+                            <td><strong>{{ log['item_name'] }}</strong></td>
+                            <td>
+                                {% if log['action_type'] in ('ដកប្រើ', 'ខ្ចី') %}
+                                <span style="font-weight: 700; color: #dc2626;">- {{ log['quantity'] }} {{ log['unit']
+                                    }}</span>
+                                {% else %}
+                                <span style="font-weight: 700; color: #059669;">+ {{ log['quantity'] }} {{ log['unit']
+                                    }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <strong style="color: #0369a1;">👤 {{ log['person_name'] if log['person_name'] else
+                                    'មិនបានបញ្ជាក់' }}</strong>
+                            </td>
+                            <td style="color: #64748b;">{{ log['notes'] if log['notes'] else '-' }}</td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn btn-danger btn-sm"
+                                    style="padding: 3px 8px; font-size: 0.75rem;"
+                                    title="លុបកំណត់ត្រា (ទាមទារសិទ្ធិ Admin)"
+                                    onclick="triggerDeleteLog('{{ log['id'] }}', '{{ log['item_name'] }}')">🗑️</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        {% endif %}
+    </main>
+
+    <!-- Modal: ផ្ទៀងផ្ទាត់លេខកូដសម្ងាត់ Admin ដើម្បីលុប (Admin PIN Verification Modal) -->
+    <div id="adminPinModal" class="modal-backdrop">
+        <div class="modal-card" style="max-width: 440px;">
+            <div class="modal-header" style="background-color: #fee2e2;">
+                <h3 class="modal-title" style="color: #991b1b;">🔐 ការពារដោយសិទ្ធិ Admin</h3>
+                <button class="close-btn" onclick="closeAdminPinModal()">&times;</button>
+            </div>
+            <form id="adminPinForm" method="POST">
+                <div class="modal-body">
+                    <p id="admin_pin_msg" style="font-size: 0.92rem; color: #475569; margin-bottom: 16px;">
+                        មានតែ Admin ប៉ុណ្ណោះដែលអាចលុបកំណត់ត្រានេះបាន។ សូមបញ្ចូលលេខកូដសម្ងាត់ Admin៖
+                    </p>
+                    <div class="form-group">
+                        <label class="form-label" style="color: #991b1b;">🔑 លេខកូដសម្ងាត់ Admin (Admin PIN) *</label>
+                        <input type="password" name="admin_pin" class="form-input" placeholder="••••••••" required
+                            autofocus>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeAdminPinModal()">បោះបង់</button>
+                    <button type="submit" class="btn btn-danger">🔓 បញ្ជាក់ការលុប</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hidden Form for Admin Submissions -->
+    <form id="directActionForm" method="POST" style="display:none;"></form>
+
+    <script>
+        const IS_ADMIN = {{ 'true' if is_admin else 'false' }};
+
+        function openAdminPinModal(actionUrl, promptText) {
+            const form = document.getElementById('adminPinForm');
+            form.action = actionUrl;
+            document.getElementById('admin_pin_msg').innerText = promptText || 'មានតែ Admin ប៉ុណ្ណោះដែលអាចធ្វើសកម្មភាពលុបនេះបាន។ សូមបញ្ចូលលេខកូដសម្ងាត់ Admin៖';
+            document.getElementById('adminPinModal').style.display = 'flex';
+        }
+
+        function closeAdminPinModal() {
+            document.getElementById('adminPinModal').style.display = 'none';
+        }
+
+        function triggerDeleteLog(logId, itemName) {
+            const actionUrl = '/delete-usage-log/' + logId;
+            if (IS_ADMIN) {
+                if (confirm('តើអ្នកពិតជាចង់លុបកំណត់ត្រា «' + itemName + '» នេះមែនទេ?')) {
+                    const form = document.getElementById('directActionForm');
+                    form.action = actionUrl;
+                    form.submit();
+                }
+            } else {
+                openAdminPinModal(actionUrl, '⚠️ ការលុបកំណត់ត្រា «' + itemName + '» ទាមទារលេខកូដសម្ងាត់ Admin៖');
+            }
+        }
+
+        window.onclick = function (event) {
+            const adminPinModal = document.getElementById('adminPinModal');
+            if (event.target === adminPinModal) closeAdminPinModal();
+        }
+
+        function clearItemInput() {
+            const input = document.getElementById('item_name_input');
+            const clearBtn = document.getElementById('clearItemBtn');
+            if (input) {
+                input.value = '';
+                input.focus();
+                if (clearBtn) clearBtn.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const itemInput = document.getElementById('item_name_input');
+            const clearBtn = document.getElementById('clearItemBtn');
+            if (itemInput && clearBtn) {
+                itemInput.addEventListener('input', function () {
+                    clearBtn.style.display = this.value.trim() ? 'block' : 'none';
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
