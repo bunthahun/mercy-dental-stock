@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>កែប្រែព័ត៌មានសម្ភារៈ - Mercy Dental Care</title>
+    <!-- Google Fonts: Kantumruy Pro & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --primary-light: #e0f2fe;
+            --secondary: #64748b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg-main: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --radius-lg: 16px;
+            --radius-md: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .edit-container {
+            width: 100%;
+            max-width: 620px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .edit-header {
+            background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+            color: #ffffff;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .edit-header-icon {
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .edit-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .edit-subtitle {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .edit-body {
+            padding: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #334155;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--text-main);
+            background-color: #fff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+        }
+
+        .edit-footer {
+            padding: 18px 28px;
+            background: #f8fafc;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary { background-color: var(--primary); color: #ffffff; }
+        .btn-primary:hover { background-color: var(--primary-hover); }
+
+        .btn-secondary { background-color: #e2e8f0; color: #334155; }
+        .btn-secondary:hover { background-color: #cbd5e1; }
+
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+            .edit-footer { flex-direction: column-reverse; gap: 10px; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="edit-container">
+        <a href="{{ url_for('index') }}" class="edit-header" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 14px; cursor: pointer;">
+            <img src="{{ url_for('static', filename='images/mercy_logo.png') }}" alt="Mercy Dental Care Logo" style="height: 48px; width: auto; background: #ffffff; padding: 2px 8px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); object-fit: contain;">
+            <div>
+                <h1 class="edit-title">កែប្រែព័ត៌មានសម្ភារៈ</h1>
+                <p class="edit-subtitle">លេខកូដទំនិញ: #{{ item['id'] }} - {{ item['item_name'] }} (ចុចទីនេះដើម្បីថយក្រោយ)</p>
+            </div>
+        </a>
+
+        <form action="{{ url_for('edit_item', item_id=item['id']) }}" method="POST">
+            <div class="edit-body">
+                <div class="form-group">
+                    <label class="form-label">ឈ្មោះសម្ភារៈ / ឱសថ (Item Name) *</label>
+                    <input type="text" name="item_name" class="form-input" value="{{ item['item_name'] }}" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">ចំនួនក្នុងស្តុក (Quantity) *</label>
+                        <input type="number" name="quantity" class="form-input" min="0" value="{{ item['quantity'] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">ឯកតា (Unit)</label>
+                        <input type="text" name="unit" class="form-input" value="{{ item['unit'] if item['unit'] else 'ប្រអប់' }}">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">ប្រភេទសម្ភារៈ (Category)</label>
+                        <select name="category" class="form-select">
+                            <option value="សម្ភារៈព្យាបាល" {% if item['category'] == 'សម្ភារៈព្យាបាល' %}selected{% endif %}>សម្ភារៈព្យាបាល (Treatment Materials)</option>
+                            <option value="Dental Lab" {% if item['category'] == 'Dental Lab' %}selected{% endif %}>🔬 Dental Lab (ខ្ចី-សង / Abutment)</option>
+                            <option value="Implant" {% if item['category'] == 'Implant' %}selected{% endif %}>🔩 Implant</option>
+                            <option value="Orthodontic" {% if item['category'] == 'Orthodontic' %}selected{% endif %}>🦷 Orthodontic</option>
+                            <option value="ឱសថ" {% if item['category'] == 'ឱសថ' %}selected{% endif %}>ឱសថ (Pharmaceuticals)</option>
+                            <option value="ឧបករណ៍" {% if item['category'] == 'ឧបករណ៍' %}selected{% endif %}>ឧបករណ៍ (Instruments)</option>
+                            <option value="ការពារ" {% if item['category'] == 'ការពារ' %}selected{% endif %}>ការពារ (Protection/PPE)</option>
+                            <option value="អនាម័យ" {% if item['category'] == 'អនាម័យ' %}selected{% endif %}>អនាម័យ (Sterilization/Hygiene)</option>
+                            <option value="ទូទៅ" {% if item['category'] == 'ទូទៅ' or not item['category'] %}selected{% endif %}>ទូទៅ (General)</option>
+                            {% if item['category'] and item['category'] not in ['សម្ភារៈព្យាបាល', 'Implant', 'Orthodontic', 'ឱសថ', 'ឧបករណ៍', 'ការពារ', 'អនាម័យ', 'ទូទៅ'] %}
+                            <option value="{{ item['category'] }}" selected>{{ item['category'] }} (ផ្សេងៗ)</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                            <label class="form-label" style="margin-bottom: 0;">កម្រិតប្រកាសអាសន្នស្តុក (Min Alert)</label>
+                            <span style="font-size: 0.74rem; color: #64748b;">(ដាក់ 0 = មិនប្រកាសអាសន្ន)</span>
+                        </div>
+                        <input type="number" id="edit_min_threshold" name="min_threshold" class="form-input" min="0" value="{{ item['min_threshold'] if item['min_threshold'] is not none else 10 }}" placeholder="0 = មិនប្រកាសអាសន្ន">
+                        <div style="display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; align-items: center;">
+                            <span style="font-size: 0.72rem; color: #64748b; margin-right: 2px;">រើសរហ័ស៖</span>
+                            <button type="button" class="btn btn-secondary btn-sm" style="padding: 2px 8px; font-size: 0.75rem; border-color: #fca5a5; color: #b91c1c; font-weight: 700; background: #fef2f2;" onclick="document.getElementById('edit_min_threshold').value = 0;" title="មិនប្រកាសអាសន្ន (ទោះសល់ 1, 2, 3 ក៏មិនលោតអាសន្នដែរ)">
+                                🚫 0 (មិនប្រកាស)
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm" style="padding: 2px 7px; font-size: 0.75rem;" onclick="document.getElementById('edit_min_threshold').value = 1;">1</button>
+                            <button type="button" class="btn btn-secondary btn-sm" style="padding: 2px 7px; font-size: 0.75rem;" onclick="document.getElementById('edit_min_threshold').value = 2;">2</button>
+                            <button type="button" class="btn btn-secondary btn-sm" style="padding: 2px 7px; font-size: 0.75rem;" onclick="document.getElementById('edit_min_threshold').value = 3;">3</button>
+                            <button type="button" class="btn btn-secondary btn-sm" style="padding: 2px 7px; font-size: 0.75rem;" onclick="document.getElementById('edit_min_threshold').value = 5;">5</button>
+                            <button type="button" class="btn btn-secondary btn-sm" style="padding: 2px 7px; font-size: 0.75rem;" onclick="document.getElementById('edit_min_threshold').value = 10;">10</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">កាលបរិច្ឆេទផុតកំណត់ (Expiry Date) *</label>
+                        <input type="date" name="expiry_date" class="form-input" value="{{ item['expiry_date'] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">👤 ឈ្មោះអ្នកដាក់ស្តុក (Added By / Staff)</label>
+                        <input type="text" name="added_by" class="form-input" value="{{ item['added_by'] if item['added_by'] else '' }}" placeholder="ឧ. បុគ្គលិក សុខ, ពេទ្យ ចិន្តា...">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">ចំណាំបន្ថែម (Notes)</label>
+                    <textarea name="notes" class="form-textarea" rows="3">{{ item['notes'] if item['notes'] else '' }}</textarea>
+                </div>
+            </div>
+
+            <div class="edit-footer">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">⬅️ ថយក្រោយ (បោះបង់)</a>
+                <button type="submit" class="btn btn-primary">💾 រក្សាទុកការកែប្រែ</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
