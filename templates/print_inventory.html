@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>របាយការណ៍ស្តុកសម្ភារៈ - Mercy Dental Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #1e293b;
+            background-color: #f8fafc;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .report-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Top Action Bar (Hidden when printing/saving to PDF) */
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f1f5f9;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .btn-print {
+            background-color: #dc2626;
+            color: #ffffff;
+        }
+
+        .btn-print:hover {
+            background-color: #b91c1c;
+        }
+
+        .btn-back {
+            background-color: #e2e8f0;
+            color: #334155;
+        }
+
+        .btn-back:hover {
+            background-color: #cbd5e1;
+        }
+
+        .btn-excel {
+            background-color: #059669;
+            color: #ffffff;
+        }
+
+        .btn-excel:hover {
+            background-color: #047857;
+        }
+
+        /* Report Header */
+        .report-header {
+            text-align: center;
+            border-bottom: 2px solid #0284c7;
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+        }
+
+        .clinic-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0369a1;
+            margin-bottom: 4px;
+        }
+
+        .report-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .report-meta {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        .meta-item strong {
+            color: #0f172a;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .fw-bold {
+            font-weight: 700;
+        }
+
+        .qty-cell {
+            font-weight: 700;
+            text-align: center;
+            color: #0f172a;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-normal {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .badge-warning {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .badge-danger {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        /* Signatures Section */
+        .signatures-grid {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            page-break-inside: avoid;
+        }
+
+        .sig-box {
+            text-align: center;
+            width: 30%;
+        }
+
+        .sig-role {
+            font-weight: 700;
+            color: #334155;
+            font-size: 0.9rem;
+            margin-bottom: 60px;
+        }
+
+        .sig-line {
+            border-top: 1px dashed #94a3b8;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #64748b;
+            padding-top: 4px;
+        }
+
+        /* Print Specific Styles */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+
+            .report-container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            th, td {
+                padding: 5px 6px;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 1.2cm 1cm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <!-- Action bar: Only visible on screen, hidden on print/PDF -->
+        <div class="action-bar no-print">
+            <div style="display: flex; gap: 8px;">
+                <button onclick="window.print()" class="btn btn-print">
+                    🖨️ ចុចបោះពុម្ព ឬ Save ជា PDF
+                </button>
+                <a href="{{ url_for('export_csv') }}" class="btn btn-excel">
+                    📊 ទាញយកជា Excel (.csv)
+                </a>
+            </div>
+            <div>
+                <a href="{{ url_for('index') }}" class="btn btn-back">
+                    ⬅️ ត្រឡប់ទៅទំព័រដើម
+                </a>
+            </div>
+        </div>
+
+        <!-- Report Header -->
+        <div class="report-header">
+            <div class="clinic-name">🏥 ប្រព័ន្ធគ្រប់គ្រងស្តុក Mercy Dental Care</div>
+            <div class="report-title">
+                របាយការណ៍សារពើភ័ណ្ឌស្តុកសម្ភារៈ
+                {% if category_filter %}
+                    — ប្រភេទ «{{ category_filter }}»
+                {% endif %}
+                {% if status_title %}
+                    <div style="color: #b45309; font-size: 1.05rem; margin-top: 4px;">{{ status_title }}</div>
+                {% endif %}
+            </div>
+            <div style="font-size: 0.82rem; color: #64748b;">
+                Mercy Dental Care Clinic • Dental Inventory Management Report
+            </div>
+        </div>
+
+        <!-- Meta info -->
+        <div class="report-meta">
+            <div class="meta-item">
+                កាលបរិច្ឆេទរបាយការណ៍៖ <strong>{{ print_date }}</strong>
+            </div>
+            <div class="meta-item">
+                ប្រភេទសម្ភារៈ៖ <strong>{{ category_filter if category_filter else 'សម្ភារៈទាំងអស់ (All)' }}</strong>
+            </div>
+            {% if status_title %}
+            <div class="meta-item" style="color: #b45309;">
+                លក្ខខណ្ឌតម្រង៖ <strong>{{ status_title }}</strong>
+            </div>
+            {% endif %}
+            <div class="meta-item">
+                សរុបមុខទំនិញ៖ <strong>{{ total_items }} មុខ</strong>
+            </div>
+            <div class="meta-item">
+                ចំនួនសរុបក្នុងស្តុក៖ <strong>{{ total_qty }}</strong>
+            </div>
+        </div>
+
+        <!-- Inventory Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 35px;">ល.រ</th>
+                    <th>ឈ្មោះសម្ភារៈ (Item Name)</th>
+                    <th style="width: 110px;">ប្រភេទ</th>
+                    <th style="width: 75px;">ចំនួន</th>
+                    <th style="width: 65px;">ឯកតា</th>
+                    <th style="width: 95px;">ផុតកំណត់</th>
+                    <th style="width: 85px;">ស្ថានភាព</th>
+                    <th style="width: 120px;">ចំណាំ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if items %}
+                    {% for item in items %}
+                        <tr>
+                            <td class="text-center">{{ loop.index }}</td>
+                            <td class="fw-bold">{{ item['item_name'] }}</td>
+                            <td>{{ item['category'] }}</td>
+                            <td class="qty-cell">{{ item['quantity'] }}</td>
+                            <td class="text-center">{{ item['unit'] if item['unit'] else 'ប្រអប់' }}</td>
+                            <td class="text-center">{{ item['expiry_date'] if item['expiry_date'] else '-' }}</td>
+                            <td class="text-center">
+                                {% if item['quantity'] <= 0 %}
+                                    <span class="status-badge badge-danger">អស់ពីស្តុក</span>
+                                {% elif item['quantity'] <= (item['min_threshold'] if item['min_threshold'] else 10) %}
+                                    <span class="status-badge badge-warning">ជិតអស់</span>
+                                {% else %}
+                                    <span class="status-badge badge-normal">មានស្តុក</span>
+                                {% endif %}
+                            </td>
+                            <td style="font-size: 0.8rem; color: #64748b;">{{ item['notes'] if item['notes'] else '-' }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="8" class="text-center" style="padding: 20px; color: #94a3b8;">
+                            មិនមានទិន្នន័យសម្ភារៈសម្រាប់របាយការណ៍នេះទេ
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <!-- Signatures Section -->
+        <div class="signatures-grid">
+            <div class="sig-box">
+                <div class="sig-role">អ្នករៀបចំរបាយការណ៍</div>
+                <div class="sig-line">ហត្ថលេខា & ឈ្មោះ</div>
+            </div>
+            <div class="sig-box">
+                <div class="sig-role">អ្នកត្រួតពិនិត្យស្តុក</div>
+                <div class="sig-line">ហត្ថលេខា & ឈ្មោះ</div>
+            </div>
+            <div class="sig-box">
+                <div class="sig-role">ប្រធានគ្លីនិក / Admin</div>
+                <div class="sig-line">ហត្ថលេខា & ត្រា</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto trigger print dialog when opened, with a short delay for font loading
+        window.addEventListener('load', function() {
+            // Uncomment if automatic popup is preferred, or user can click the button
+            setTimeout(function() {
+                window.print();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
